@@ -15,4 +15,24 @@ bike.break!
 expect(bike).to be_broken
 end
 #This is the next relevent test for the bike to break 
+
+it 'can be fixed' do
+  #this is the next most relevent test
+  #next to create the bike
+  bike = Bike.new
+  bike.break!
+  bike.fix!
+  #then the expectations
+  expect(bike).not_to be_broken
+
+
+end
+
+
+
+
+
+
+
+
 end
