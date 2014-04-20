@@ -29,4 +29,20 @@ describe DockingStation do
     expect(station).to have_bikes
   end
 
+  it 'has available bikes' do 
+    expect(station.available_bikes).to eq [bike]
+  end
+
+  it 'can dock a bike' do 
+    station = DockingStation.new
+    station.dock(:bike)
+    expect(station).to have_bikes
+  end
+
+  it 'lets us know that we returned the bike and dont have one' do
+
+  station = DockingStation.new
+  expect(station.dock(:bike)).to be_nil
+  end
+
 end
