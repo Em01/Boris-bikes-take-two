@@ -69,19 +69,7 @@ describe DockingStation do
       expect(station.broken_bikes).to eq [broken_bike, broken_bike_two]
     end
 
-
-
-
-
-
-
-
-
-
-
-
-
-end
+  end
 end
 
 
