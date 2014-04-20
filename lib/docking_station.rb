@@ -1,14 +1,11 @@
+require_relative 'bike_container'
+
 class DockingStation
-  BROKEN_BIKE_SELECTOR =  ->(bike){bike.broken? }
-  #lambda
-  #constant
+  include BikeContainer
+
+  
   def initialize(bikes = [])
     @bikes = bikes 
-  end
-
-  def has_bikes?
-    @bikes.any?
-    #do you have any element-if it says true then you do have bikes becuase there are bikes in it.
   end
 
   def available_bikes
@@ -18,10 +15,6 @@ class DockingStation
     #lambda
   end
 
-  def broken_bikes
-        @bikes.select(&BROKEN_BIKE_SELECTOR)
-  end
-
 
   def release_bike
     release(available_bikes.pop)
@@ -29,9 +22,6 @@ class DockingStation
     #takes last available bike and deletes it from what the docking station has
   end
 
-  def release(bike)
-    @bikes.delete(bike)
-  end
 
   def dock(bike)
     @bikes << bike

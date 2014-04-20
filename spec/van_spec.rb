@@ -39,7 +39,8 @@ end
 
 it 'drops broken bikes to a place' do
 place = double :place
-van = Van.new([:bike])
+bike = double :bike, broken?: true
+van = Van.new([bike])
 
 expect(place).to receive(:dock)
 
