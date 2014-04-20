@@ -1,4 +1,7 @@
 class DockingStation
+  BROKEN_BIKE_SELECTOR =  ->(bike){bike.broken? }
+  #lambda
+  #constant
   def initialize(bikes = [])
     @bikes = bikes 
   end
@@ -9,19 +12,25 @@ class DockingStation
   end
 
   def available_bikes
-    @bikes.reject {|bike| bike.broken? }
+    
+    @bikes.reject(&BROKEN_BIKE_SELECTOR) 
     #all the ones that are not broken are available bikes/rejecting broken bikes
+    #lambda
   end
 
   def broken_bikes
-        @bikes.select {|bike| bike.broken?}
+        @bikes.select(&BROKEN_BIKE_SELECTOR)
   end
 
 
   def release_bike
-    @bikes.delete(available_bikes.pop)
+    release(available_bikes.pop)
     #popping an element out of there
     #takes last available bike and deletes it from what the docking station has
+  end
+
+  def release(bike)
+    @bikes.delete(bike)
   end
 
   def dock(bike)
@@ -30,7 +39,7 @@ class DockingStation
   end
 
   def release_broken_bikes
-broken_bikes.map{|bike| @bikes.delete(bike) }
+broken_bikes.map{|bike| release(bike) }
   end
 
 end
