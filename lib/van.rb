@@ -15,13 +15,12 @@ class Van
   end
 
   def drop_broken_bikes_into(place)
-   broken_bikes.each do |bike| 
-   place.dock(release(bike)) 
-  end
+   drop_into(place, broken_bikes)
+  
 end
 
 def drop_bikes_into(place)
-  drop_into(place, fixed_bikes)
+drop_into(place, fixed_bikes)
 end
 
 def drop_into(place, bike_type)
