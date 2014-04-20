@@ -8,12 +8,7 @@ class DockingStation
     @bikes = bikes 
   end
 
-  def available_bikes
-    
-    @bikes.reject(&BROKEN_BIKE_SELECTOR) 
-    #all the ones that are not broken are available bikes/rejecting broken bikes
-    #lambda
-  end
+  
 
 
   def release_bike
