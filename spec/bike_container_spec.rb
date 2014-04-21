@@ -32,7 +32,7 @@ end
 
 
   it 'has available bikes' do 
-    expect(filled_contained.available_bikes).to eq [bike]
+    expect(filled_container.available_bikes).to eq [bike]
   end
 
 
