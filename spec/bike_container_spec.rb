@@ -19,13 +19,7 @@ shared_examples BikeContainer do
   end
   #if you release a bike should not have bikes
 
- it 'drops broken bikes to a place' do 
-  place = double :place
 
-
-expect(place).to receive(:dock)
-filled_container.drop_broken_bikes_into(place)
-end
 
 it 'drops fixed bikes into a place' do
   place = double :place
@@ -78,5 +72,9 @@ expect(container.dock(bike)).to be_nil
     it 'shows us the broken bikes' do
       expect(station.broken_bikes).to eq [broken_bike, broken_bike_two]
     end
+end
+
+it 'shows us the bikes it has' do 
+  expect(described_class.new([:bike]).bikes).to eq [:bike]
 end
 end
