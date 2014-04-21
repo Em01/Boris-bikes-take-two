@@ -4,14 +4,26 @@ module BikeContainer
   #lambda
   #constant
 
-   def has_bikes?
+  def has_bikes?
     @bikes.any?
-    #do you have any element-if it says true then you do have bikes becuase there are bikes in it.
   end
 
-    def release(bike)
+  def bikes
+    @bikes
+  end
+
+  def release(bike)
     @bikes.delete(bike)
   end
+
+   def dock(bike)
+  @bikes << bike
+  nil
+end
+    def release_bike
+      release(available_bikes.pop)
+  end
+
 
 
     def available_bikes
@@ -27,4 +39,7 @@ module BikeContainer
         @bikes.select(&BROKEN_BIKE_SELECTOR)
   end
 
+  def drop_broken_bikes_into(place)
+    drop_into(place, broken_bikes)
+end
 end

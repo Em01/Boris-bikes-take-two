@@ -3,7 +3,9 @@ require_relative 'bike_container'
 class Van
   include BikeContainer
   alias :fixed_bikes :available_bikes 
-  attr_reader :bikes
+  alias :load :dock
+
+
 
   def initialize(bikes=[])
     #if the array is empty it has no bikes-nil false

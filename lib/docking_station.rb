@@ -27,4 +27,7 @@ class DockingStation
 broken_bikes.map{|bike| release(bike) }
   end
 
+  def drop_broken_bikes_into(van)
+  end
+
 end

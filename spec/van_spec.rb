@@ -1,11 +1,11 @@
 require 'van'
+require_relative 'bike_container_spec'
 
 describe Van do
   let(:van) { Van.new }
 
-  it 'has no bikes' do 
-    expect(Van.new).not_to have_bikes
-  end
+  it_behaves_like BikeContainer 
+  
 
   it 'picks up broken bikes from a place' do 
     place = double :place
@@ -55,10 +55,14 @@ van = Van.new([bike])
 expect(place).to receive(:dock)
 
 van.drop_bikes_into(place)
+end
+
+it 'bikes can be loaded into the van' do
+  van.load(:bike)
+  expect(van).to have_bikes
 
 
 end
-
 
 end
 
