@@ -5,7 +5,7 @@ describe Garage do
   it_behaves_like BikeContainer 
 
   it 'fixes bikes' do 
-    bike = double :bikes broken?: true
+    bike = double :bike, broken?: true
     garage = Garage.new([bike])
     expect(bike).to receive(:fix!)
 
@@ -22,4 +22,5 @@ describe Garage do
     garage = Garage.new([bike, broken_bike])
 
     garage.fix_bikes
+end
 end
