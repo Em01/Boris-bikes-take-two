@@ -37,15 +37,7 @@ describe Van do
   expect(van.bikes).to eq [:bike, :bike]
 end
 
-it 'drops broken bikes to a place' do
-place = double :place
-bike = double :bike, broken?: true
-van = Van.new([bike])
 
-expect(place).to receive(:dock)
-
-van.drop_broken_bikes_into(place)
-end
 
 it 'drops fixed bikes into a place' do 
 place = double :place

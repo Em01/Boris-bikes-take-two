@@ -70,11 +70,21 @@ expect(container.dock(bike)).to be_nil
   end
 
     it 'shows us the broken bikes' do
-      expect(station.broken_bikes).to eq [broken_bike, broken_bike_two]
+      expect(container_with_two,broken_bikes).to eq[broken_bike, broken_bike_two]
     end
 end
 
 it 'shows us the bikes it has' do 
   expect(described_class.new([:bike]).bikes).to eq [:bike]
+end
+
+it 'drops broken bikes to a place' do
+place = double :place
+bike = double :bike, broken?: true
+container = described_class.new([bike])
+
+expect(place).to receive(:dock)
+
+container.drop_broken_bikes_into(place)
 end
 end
